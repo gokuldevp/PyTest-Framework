@@ -1,0 +1,53 @@
+Day-27
+----------
+Skip tests
+Ordering 
+dependant tests
+grouping
+parallel testing
+etc...
+
+
+Skipping
+	@pytest.mark.skip
+
+Ordering
+
+	install pacakge :  pytest-ordering	
+
+	1) pytest.ini file   ---> contains customized markers
+	2) @pytest.mark.first
+	   @pytest.mark.second
+
+	(or)
+	3) @pytest.mark.run(order=1)
+	   @pytest.mark.run(order=2)
+
+Dependant tests
+    install package : pytest-dependency
+	@pytest.mark.dependency()
+
+
+Grouping
+	   @pytest.mark.sanity
+   	   @pytest.mark.regressions
+
+	 	pytest.ini file   ---> contains customized markers
+	
+	Command to execute         : 	           pytest -v -s -m Part_2/test_grouping.py
+	execute both group         :               pytest -v -s -m "regression and sanity" Part_2/test_grouping.py
+	execute specific group     :               pytest -v -s -m "regression" Part_2/test_grouping.py
+	not execute specific group :               pytest -v -s -m "not regression" Part_2/test_grouping.py
+	
+
+Parallel execution
+		install package:  pytest-xdist
+
+	Command to execute:  pytest -n=3 -v -s part_2\test_parallel.py
+
+	Note:
+	1. where -n=3 is 3 workers are alocated, increase it based on the test method.
+	2. you can use 3-5 workers more than that can decrease the speed.
+
+
+		

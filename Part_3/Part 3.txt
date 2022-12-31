@@ -1,0 +1,42 @@
+Day28
+----------
+parameterization - we can execute the test with different sets of data.
+eg: @pytest.mark.parametrize('num1,num2', [(2,1), (2,2), (2,3), (2,4)])
+
+
+what is the fixture method? - Fixtures are functions, which will run before each test function to which it is applied
+
+1) how we can use fixture method in multiple test methods - add fixture method as attribute to all test methods.
+2) how fixture method returns the data  -  in the fixture method use return keyword insite the fixture method
+3) how we use fixture data in test methods - add the fixture method as attribute in the test method
+4) passing browser name as arguments through command line
+
+These 2 function needed to added in the conftest.py for adding the command line data
+
+def pytest_addoption(parser):  # This will get the value from Command line
+    parser.addoption("--browser")
+
+@pytest.fixture()  # This will return the browser value to the setup method
+def browser(request):
+    return request.config.getoption("--browser")
+
+ pytest -s -v .\Part_3\test_CommandLine.py --browser chrome
+ pytest -s -v .\Part_3\test_CommandLine.py --browser edge
+
+Generating HTML reports...
+	1. install package - pytest-html
+	2. use this in the terminal --html=Part_3\commandline.html
+	pytest -v -s --html=Part_3\commandline.html  Part_3\test_commandline.py --browser chrome
+
+we can modify the html report using the below functions
+
+# Customize HTML reports
+# Hook for adding Evironment info to HTML report
+def pytest_configure(config):
+    config._metadata["Project Name"] = "Orange HRM"
+
+# Hook for Deleting/Modify Evironment info to HTML report
+@pytest.hookimpl(optionalhook=True)
+def pytest_metadata(metadata):
+    metadata.pop("Packages",None)
+

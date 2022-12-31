@@ -1,0 +1,26 @@
+Normal Approch | Without using Page object model:
+    In this case when we need to use the same elements in multiple type of test(eg= search/ advanced search) the below issue may occure.
+        1. Duplication of objects
+        2. Updation of elements
+
+Page Object Module:
+    Consists of two things
+        1. Page Elements
+        2. Action Methods
+
+    in this case we can use page elements in multiple test cases.
+    here the disadvantage of the Normal approch is resolved
+
+    structor for Page object model
+
+    class Login_page:
+        # Locators
+
+        # constructor
+
+        # Action Methods
+
+    Rules to follow for page object class
+    1. One page object class should only contains element unique to one single page
+    2. should not hardcode any data
+    3. should not include any validation

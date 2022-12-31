@@ -1,0 +1,50 @@
+PART - 1
+-------
+PyTest
+
+PyTest is a framework by which we can use certain features in automation..
+
+
+1) Fixtures
+2) Parallel testing
+3) Skip the tests
+4) Group tests
+5) Batch testing
+6) Parameterization
+7) Reports
+etc...
+
+
+Pre-requisite: Install pytest package in pycharm
+
+
+Project-->Test suite--> Test cases--> Test steps
+
+Project--->Directory-->Modules(.py)-->Class-->Test Methods
+
+
+Naming Convensions
+-------------
+1) File names should starting with test_ or ending with _test , as in test_example.py or example_test.py 
+2) Class name should start with “Test”, as in TestExample 
+3) Test method names should start with “test”, as in test_example(), else the method won't be considered as test method.
+
+
+pytest -v -s Part_1\test_1.py
+
+
+Single module
+----
+pytest -v -s Part_1\modules\test_login.py
+
+All the modules in a directory/package
+----------------------
+pytest -v -s Part_1\modules
+
+Run Specific Test Method from a Module
+-----------------------------
+pytest -v -s dPart_1/modules/test_login.py::TestLogin::test_LoginByFacebook
+
+
+
+
