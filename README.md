@@ -35,3 +35,5 @@
 ### ->Return A value from Fixture
 
 ### ->pyTest HTML Report generation
+
+## ->Page Object Model Pattern – Page Factory
